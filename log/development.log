@@ -5993,3 +5993,363 @@ puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
 puma (3.12.0) lib/puma/server.rb:472:in `process_client'
 puma (3.12.0) lib/puma/server.rb:332:in `block in run'
 puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2019-05-07 16:20:50 +0530
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (2.5ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 369ms (Views: 360.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/google_oauth2" for 127.0.0.1 at 2019-05-07 16:20:53 +0530
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2" for 127.0.0.1 at 2019-05-07 16:20:53 +0530
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2/callback?state=c83f8105a3637a5560e7b1cdb6ede8078c461845f0844f38&code=4/QwH8TWzpLdW7Oq5pY8-XrDwniagW5LU72gZ_BibIjTN3bg69jnOJbcR5KMcLLSe_WNIFzKJ4BnIPILdNSdbOxJ8&scope=email%20profile%20https://www.googleapis.com/auth/userinfo.email%20https://www.googleapis.com/auth/userinfo.profile" for 127.0.0.1 at 2019-05-07 16:20:56 +0530
+(google_oauth2) Callback phase initiated.
+  
+JWT::InvalidIatError (Invalid iat):
+  
+jwt (1.5.6) lib/jwt/verify.rb:55:in `verify_iat'
+jwt (1.5.6) lib/jwt/verify.rb:10:in `block (2 levels) in singleton class'
+jwt (1.5.6) lib/jwt/decode.rb:53:in `block in verify'
+jwt (1.5.6) lib/jwt/decode.rb:50:in `each'
+jwt (1.5.6) lib/jwt/decode.rb:50:in `verify'
+jwt (1.5.6) lib/jwt.rb:126:in `decode'
+omniauth-google-oauth2 (0.2.10) lib/omniauth/strategies/google_oauth2.rb:61:in `block in <class:GoogleOauth2>'
+omniauth (1.8.1) lib/omniauth/strategy.rb:109:in `instance_eval'
+omniauth (1.8.1) lib/omniauth/strategy.rb:109:in `block in compile_stack'
+omniauth (1.8.1) lib/omniauth/strategy.rb:108:in `each'
+omniauth (1.8.1) lib/omniauth/strategy.rb:108:in `inject'
+omniauth (1.8.1) lib/omniauth/strategy.rb:108:in `compile_stack'
+omniauth (1.8.1) lib/omniauth/strategy.rb:102:in `extra_stack'
+omniauth (1.8.1) lib/omniauth/strategy.rb:341:in `extra'
+omniauth (1.8.1) lib/omniauth/strategy.rb:348:in `auth_hash'
+omniauth (1.8.1) lib/omniauth/strategy.rb:368:in `callback_phase'
+omniauth-oauth2 (1.3.1) lib/omniauth/strategies/oauth2.rb:79:in `callback_phase'
+omniauth (1.8.1) lib/omniauth/strategy.rb:236:in `callback_call'
+omniauth (1.8.1) lib/omniauth/strategy.rb:188:in `call!'
+omniauth (1.8.1) lib/omniauth/strategy.rb:168:in `call'
+omniauth (1.8.1) lib/omniauth/builder.rb:63:in `call'
+rack (2.0.6) lib/rack/etag.rb:25:in `call'
+rack (2.0.6) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.6) lib/rack/head.rb:12:in `call'
+rack (2.0.6) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.6) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.6) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.6) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/auth/google_oauth2/callback?state=c83f8105a3637a5560e7b1cdb6ede8078c461845f0844f38&code=4/QwH8TWzpLdW7Oq5pY8-XrDwniagW5LU72gZ_BibIjTN3bg69jnOJbcR5KMcLLSe_WNIFzKJ4BnIPILdNSdbOxJ8&scope=email%20profile%20https://www.googleapis.com/auth/userinfo.email%20https://www.googleapis.com/auth/userinfo.profile" for 127.0.0.1 at 2019-05-07 16:22:47 +0530
+(google_oauth2) Callback phase initiated.
+(google_oauth2) Authentication failure! invalid_credentials: OAuth2::Error, invalid_grant: Bad Request
+{
+  "error": "invalid_grant",
+  "error_description": "Bad Request"
+}
+  
+OAuth2::Error (invalid_grant: Bad Request
+{
+  "error": "invalid_grant",
+  "error_description": "Bad Request"
+}):
+  
+oauth2 (1.4.1) lib/oauth2/client.rb:119:in `request'
+oauth2 (1.4.1) lib/oauth2/client.rb:146:in `get_token'
+oauth2 (1.4.1) lib/oauth2/strategy/auth_code.rb:30:in `get_token'
+omniauth-oauth2 (1.3.1) lib/omniauth/strategies/oauth2.rb:93:in `build_access_token'
+omniauth-google-oauth2 (0.2.10) lib/omniauth/strategies/google_oauth2.rb:103:in `custom_build_access_token'
+omniauth-oauth2 (1.3.1) lib/omniauth/strategies/oauth2.rb:77:in `callback_phase'
+omniauth (1.8.1) lib/omniauth/strategy.rb:236:in `callback_call'
+omniauth (1.8.1) lib/omniauth/strategy.rb:188:in `call!'
+omniauth (1.8.1) lib/omniauth/strategy.rb:168:in `call'
+omniauth (1.8.1) lib/omniauth/builder.rb:63:in `call'
+rack (2.0.6) lib/rack/etag.rb:25:in `call'
+rack (2.0.6) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.6) lib/rack/head.rb:12:in `call'
+rack (2.0.6) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.6) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.6) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.6) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2019-05-07 16:23:12 +0530
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (1.7ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 321ms (Views: 312.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/google_oauth2" for 127.0.0.1 at 2019-05-07 16:23:14 +0530
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2" for 127.0.0.1 at 2019-05-07 16:23:14 +0530
+(google_oauth2) Request phase initiated.
+Started GET "/auth/google_oauth2/callback?state=cc94fbfb3143939e247a3a5dcd5c8964e2f7f1fbfa97cc29&code=4/QwHEZ5vgN9qpdSYsz8-JJJ8yRt-Ag9FAJwPMyYsEjrL55t9c6Wro_qp9qOfieYGNwE83zQvk8-iAJrQ8QLcmqNE&scope=email%20profile%20https://www.googleapis.com/auth/userinfo.profile%20https://www.googleapis.com/auth/userinfo.email" for 127.0.0.1 at 2019-05-07 16:23:17 +0530
+(google_oauth2) Callback phase initiated.
+Processing by SessionsController#create as HTML
+  Parameters: {"state"=>"cc94fbfb3143939e247a3a5dcd5c8964e2f7f1fbfa97cc29", "code"=>"4/QwHEZ5vgN9qpdSYsz8-JJJ8yRt-Ag9FAJwPMyYsEjrL55t9c6Wro_qp9qOfieYGNwE83zQvk8-iAJrQ8QLcmqNE", "scope"=>"email profile https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email", "provider"=>"google_oauth2"}
+  [1m[36mRole Load (4.9ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."name" = $1 LIMIT $2[0m  [["name", "Normal User"], ["LIMIT", 1]]
+  [1m[36mUser Load (4.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."provider" = $1 AND "users"."uid" = $2 ORDER BY "users"."id" ASC LIMIT $3[0m  [["provider", "google_oauth2"], ["uid", "107943307362042977634"], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] Enqueued ActionMailer::Parameterized::DeliveryJob (Job ID: d1eec5ae-ec17-4d26-829f-3be5046759c9) to Async(mailers) with arguments: "UserMailer", "access_request", "deliver_now", {:user=>#<GlobalID:0x00007f8ea8530a78 @uri=#<URI::GID gid://dashboard/User/1>>}
+Redirected to http://localhost:3000/events
+Completed 302 Found in 314ms (ActiveRecord: 31.5ms)
+
+
+Started GET "/events" for 127.0.0.1 at 2019-05-07 16:23:18 +0530
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [ActionMailer::Parameterized::DeliveryJob] [d1eec5ae-ec17-4d26-829f-3be5046759c9] Performing ActionMailer::Parameterized::DeliveryJob (Job ID: d1eec5ae-ec17-4d26-829f-3be5046759c9) from Async(mailers) with arguments: "UserMailer", "access_request", "deliver_now", {:user=>#<GlobalID:0x00007f8ea33a9588 @uri=#<URI::GID gid://dashboard/User/1>>}
+[ActiveJob] [ActionMailer::Parameterized::DeliveryJob] [d1eec5ae-ec17-4d26-829f-3be5046759c9]   [1m[35m (1.4ms)[0m  [1m[34mSELECT "users"."email" FROM "users" WHERE "users"."role_id" IN (SELECT "roles"."id" FROM "roles" WHERE "roles"."name" = $1)[0m  [["name", "Super Admin"]]
+[ActiveJob] [ActionMailer::Parameterized::DeliveryJob] [d1eec5ae-ec17-4d26-829f-3be5046759c9]   Rendering user_mailer/access_request.html.erb within layouts/mailer
+[ActiveJob] [ActionMailer::Parameterized::DeliveryJob] [d1eec5ae-ec17-4d26-829f-3be5046759c9]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" ORDER BY "users"."id" DESC LIMIT $1[0m  [["LIMIT", 1]]
+[ActiveJob] [ActionMailer::Parameterized::DeliveryJob] [d1eec5ae-ec17-4d26-829f-3be5046759c9]   Rendered user_mailer/access_request.html.erb within layouts/mailer (1.6ms)
+  [1m[35m (56.2ms)[0m  [1m[34mSELECT "clusters"."id" FROM "clusters" WHERE "clusters"."name" = $1[0m  [["name", "staging"]]
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "clusters"."id" FROM "clusters" WHERE "clusters"."name" = $1[0m  [["name", "demo"]]
+  [1m[36mUser Load (5.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRole Load (0.6ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_sub_header_event.html.erb (192.3ms)
+  [1m[36mEvent Load (23.1ms)[0m  [1m[34mSELECT  "events".* FROM "events" ORDER BY events.purge_status, events.updated_at DESC LIMIT $1 OFFSET $2[0m  [["LIMIT", 30], ["OFFSET", 0]]
+[ActiveJob] [ActionMailer::Parameterized::DeliveryJob] [d1eec5ae-ec17-4d26-829f-3be5046759c9] UserMailer#access_request: processed outbound mail in 254.3ms
+[ActiveJob] [ActionMailer::Parameterized::DeliveryJob] [d1eec5ae-ec17-4d26-829f-3be5046759c9] Sent mail to biswajit.nayak@jifflenow.com (11.7ms)
+[ActiveJob] [ActionMailer::Parameterized::DeliveryJob] [d1eec5ae-ec17-4d26-829f-3be5046759c9] Date: Tue, 07 May 2019 16:23:18 +0530
+From: notifications@jifflenow.com
+To: biswajit.nayak@jifflenow.com
+Message-ID: <5cd1639e8b9a3_67e63fc7542983fc654d8@BLRJNM00039.mail>
+Subject: Request Application Access
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* Email styles need to be inline */
+    </style>
+  </head>
+
+  <body>
+    <html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hi </h1>
+    <p>
+      There is a request to access the application Deployment Directory from Jifflenow Support.<br>
+    </p>
+  </body>
+</html>
+  </body>
+</html>
+
+[ActiveJob] [ActionMailer::Parameterized::DeliveryJob] [d1eec5ae-ec17-4d26-829f-3be5046759c9] Performed ActionMailer::Parameterized::DeliveryJob (Job ID: d1eec5ae-ec17-4d26-829f-3be5046759c9) from Async(mailers) in 273.54ms
+  [1m[36mPlugin Load (3.1ms)[0m  [1m[34mSELECT "plugins".* FROM "plugins" WHERE "plugins"."entity_type" = $1 AND "plugins"."entity_id" IN (2, 1)[0m  [["entity_type", "Event"]]
+  [1m[36mCompany Load (1.1ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = 1[0m
+  [1m[36mCluster Load (0.3ms)[0m  [1m[34mSELECT "clusters".* FROM "clusters" WHERE "clusters"."id" = 1[0m
+  [1m[36mEventType Load (2.4ms)[0m  [1m[34mSELECT  "event_types".* FROM "event_types" WHERE "event_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCsmInfo Load (1.8ms)[0m  [1m[34mSELECT  "csm_infos".* FROM "csm_infos" WHERE "csm_infos"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE EventType Load (0.0ms)[0m  [1m[34mSELECT  "event_types".* FROM "event_types" WHERE "event_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered events/index.html.erb within layouts/application (355.2ms)
+  Rendered layouts/_header.html.erb (1.3ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 437ms (Views: 300.2ms | ActiveRecord: 128.8ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2019-05-07 16:23:21 +0530
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  Rendered layouts/_sub_header_user.html.erb (0.6ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mRole Load (0.6ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" IN (1, 4)[0m
+  Rendered users/index.html.erb within layouts/application (7.0ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRole Load (0.5ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (4.3ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 81ms (Views: 73.8ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2019-05-07 16:23:22 +0530
+Processing by CompaniesController#index as HTML
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "clusters"."id" FROM "clusters" WHERE "clusters"."name" = $1[0m  [["name", "staging"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "clusters"."id" FROM "clusters" WHERE "clusters"."name" = $1[0m  [["name", "demo"]]
+  Rendered layouts/_sub_header.html.erb (12.5ms)
+  [1m[36mCompany Load (1.1ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY companies.name ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 13], ["OFFSET", 0]]
+  [1m[36mHABTM_Deployments Load (0.5ms)[0m  [1m[34mSELECT "companies_deployments".* FROM "companies_deployments" WHERE "companies_deployments"."company_id" IN (1, 2, 3)[0m
+  [1m[36mDeployment Load (1.6ms)[0m  [1m[34mSELECT "deployments".* FROM "deployments" WHERE "deployments"."id" IN (1, 2, 3, 4, 5)[0m
+  [1m[36mPlugin Load (0.6ms)[0m  [1m[34mSELECT "plugins".* FROM "plugins" WHERE "plugins"."entity_type" = $1 AND "plugins"."entity_id" IN (1, 2, 3)[0m  [["entity_type", "Company"]]
+  [1m[36mCluster Load (0.3ms)[0m  [1m[34mSELECT "clusters".* FROM "clusters" WHERE "clusters"."id" = 1[0m
+  [1m[36mCsmInfo Load (0.8ms)[0m  [1m[34mSELECT  "csm_infos".* FROM "csm_infos" WHERE "csm_infos"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE CsmInfo Load (0.0ms)[0m  [1m[34mSELECT  "csm_infos".* FROM "csm_infos" WHERE "csm_infos"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE CsmInfo Load (0.0ms)[0m  [1m[34mSELECT  "csm_infos".* FROM "csm_infos" WHERE "csm_infos"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered companies/index.html.erb within layouts/application (83.0ms)
+  Rendered layouts/_header.html.erb (0.9ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 161ms (Views: 139.4ms | ActiveRecord: 15.1ms)
+
+
+Started GET "/events" for 127.0.0.1 at 2019-05-07 16:23:23 +0530
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "clusters"."id" FROM "clusters" WHERE "clusters"."name" = $1[0m  [["name", "staging"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "clusters"."id" FROM "clusters" WHERE "clusters"."name" = $1[0m  [["name", "demo"]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_sub_header_event.html.erb (10.5ms)
+  [1m[36mEvent Load (1.7ms)[0m  [1m[34mSELECT  "events".* FROM "events" ORDER BY events.purge_status, events.updated_at DESC LIMIT $1 OFFSET $2[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mPlugin Load (0.4ms)[0m  [1m[34mSELECT "plugins".* FROM "plugins" WHERE "plugins"."entity_type" = $1 AND "plugins"."entity_id" IN (2, 1)[0m  [["entity_type", "Event"]]
+  [1m[36mCompany Load (0.3ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = 1[0m
+  [1m[36mCluster Load (0.3ms)[0m  [1m[34mSELECT "clusters".* FROM "clusters" WHERE "clusters"."id" = 1[0m
+  [1m[36mEventType Load (0.3ms)[0m  [1m[34mSELECT  "event_types".* FROM "event_types" WHERE "event_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCsmInfo Load (0.3ms)[0m  [1m[34mSELECT  "csm_infos".* FROM "csm_infos" WHERE "csm_infos"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE EventType Load (0.0ms)[0m  [1m[34mSELECT  "event_types".* FROM "event_types" WHERE "event_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered events/index.html.erb within layouts/application (27.6ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 85ms (Views: 76.3ms | ActiveRecord: 4.7ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2019-05-07 16:23:24 +0530
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  Rendered layouts/_sub_header_user.html.erb (1.5ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mRole Load (1.3ms)[0m  [1m[34mSELECT "roles".* FROM "roles" WHERE "roles"."id" IN (1, 4)[0m
+  Rendered users/index.html.erb within layouts/application (12.9ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_header.html.erb (2.5ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 82ms (Views: 77.0ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/companies" for 127.0.0.1 at 2019-05-07 16:23:25 +0530
+Processing by CompaniesController#index as HTML
+  Rendering companies/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "clusters"."id" FROM "clusters" WHERE "clusters"."name" = $1[0m  [["name", "staging"]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "clusters"."id" FROM "clusters" WHERE "clusters"."name" = $1[0m  [["name", "demo"]]
+  Rendered layouts/_sub_header.html.erb (6.0ms)
+  [1m[36mCompany Load (0.6ms)[0m  [1m[34mSELECT  "companies".* FROM "companies" ORDER BY companies.name ASC LIMIT $1 OFFSET $2[0m  [["LIMIT", 13], ["OFFSET", 0]]
+  [1m[36mHABTM_Deployments Load (1.1ms)[0m  [1m[34mSELECT "companies_deployments".* FROM "companies_deployments" WHERE "companies_deployments"."company_id" IN (1, 2, 3)[0m
+  [1m[36mDeployment Load (0.4ms)[0m  [1m[34mSELECT "deployments".* FROM "deployments" WHERE "deployments"."id" IN (1, 2, 3, 4, 5)[0m
+  [1m[36mPlugin Load (0.3ms)[0m  [1m[34mSELECT "plugins".* FROM "plugins" WHERE "plugins"."entity_type" = $1 AND "plugins"."entity_id" IN (1, 2, 3)[0m  [["entity_type", "Company"]]
+  [1m[36mCluster Load (0.3ms)[0m  [1m[34mSELECT "clusters".* FROM "clusters" WHERE "clusters"."id" = 1[0m
+  [1m[36mCsmInfo Load (0.3ms)[0m  [1m[34mSELECT  "csm_infos".* FROM "csm_infos" WHERE "csm_infos"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE CsmInfo Load (0.0ms)[0m  [1m[34mSELECT  "csm_infos".* FROM "csm_infos" WHERE "csm_infos"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE CsmInfo Load (0.0ms)[0m  [1m[34mSELECT  "csm_infos".* FROM "csm_infos" WHERE "csm_infos"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered companies/index.html.erb within layouts/application (29.6ms)
+  Rendered layouts/_header.html.erb (1.1ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 87ms (Views: 77.9ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/events" for 127.0.0.1 at 2019-05-07 16:23:25 +0530
+Processing by EventsController#index as HTML
+  Rendering events/index.html.erb within layouts/application
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "clusters"."id" FROM "clusters" WHERE "clusters"."name" = $1[0m  [["name", "staging"]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "clusters"."id" FROM "clusters" WHERE "clusters"."name" = $1[0m  [["name", "demo"]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT  "roles".* FROM "roles" WHERE "roles"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered layouts/_sub_header_event.html.erb (19.4ms)
+  [1m[36mEvent Load (0.4ms)[0m  [1m[34mSELECT  "events".* FROM "events" ORDER BY events.purge_status, events.updated_at DESC LIMIT $1 OFFSET $2[0m  [["LIMIT", 30], ["OFFSET", 0]]
+  [1m[36mPlugin Load (0.4ms)[0m  [1m[34mSELECT "plugins".* FROM "plugins" WHERE "plugins"."entity_type" = $1 AND "plugins"."entity_id" IN (2, 1)[0m  [["entity_type", "Event"]]
+  [1m[36mCompany Load (0.4ms)[0m  [1m[34mSELECT "companies".* FROM "companies" WHERE "companies"."id" = 1[0m
+  [1m[36mCluster Load (0.6ms)[0m  [1m[34mSELECT "clusters".* FROM "clusters" WHERE "clusters"."id" = 1[0m
+  [1m[36mEventType Load (0.7ms)[0m  [1m[34mSELECT  "event_types".* FROM "event_types" WHERE "event_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mCsmInfo Load (0.4ms)[0m  [1m[34mSELECT  "csm_infos".* FROM "csm_infos" WHERE "csm_infos"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mCACHE EventType Load (0.0ms)[0m  [1m[34mSELECT  "event_types".* FROM "event_types" WHERE "event_types"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered events/index.html.erb within layouts/application (34.9ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+  Rendered layouts/_footer.html.erb (0.2ms)
+Completed 200 OK in 84ms (Views: 75.5ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/signout" for 127.0.0.1 at 2019-05-07 16:23:26 +0530
+Processing by SessionsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-05-07 16:23:26 +0530
+Processing by HomeController#show as HTML
+  Rendering home/show.html.erb within layouts/application
+  Rendered home/show.html.erb within layouts/application (0.4ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 63ms (Views: 59.2ms | ActiveRecord: 0.0ms)
+
+
