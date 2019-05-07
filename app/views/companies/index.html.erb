@@ -1,0 +1,50 @@
+<%= render "layouts/sub_header" %>
+<% if @companies.present? %>
+<div class="table-responsive">
+  <table class="table table-hover table-bordered">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>System name</th>
+        <th>Deployment</th>
+        <th>Cluster</th>
+        <th>Plugin</th>
+        <th>CSM</th>
+        <%unless current_user.normal_user?%>
+        <th colspan="3">Action</th>
+        <%end%>
+      </tr>
+    </thead>
+    <tbody>
+      <% @companies.each do |company| %>
+          <tr>
+            <td><%= link_to company.name, company %></td>
+            <td><%= company.system_name %></td>
+            <td><%= company.deployment_names.to_sentence%></td>
+            <td><%= company.cluster.try(:name) %></td>
+            <td><%= company.plugin_names.to_sentence %></td>
+            <td><%= company.csm_info.try(:name) %></td>
+            <%unless current_user.normal_user?%>
+            <td class='text-center'><%= link_to '', edit_company_path(company), class: "glyphicon glyphicon-pencil" %></td>
+            <%if current_user.cse? || current_user.infra? || current_user.admin? %>
+              <td><%= link_to '', company, method: :delete, data: { confirm: 'Are you sure?'}, class: "glyphicon glyphicon-trash" %></td>
+              <%end%>
+            <%end%>
+      <% end %>
+    </tr>
+    </tbody>
+  </table>
+  </div>
+    <p class: "pull-right">
+
+      <%= will_paginate @companies, renderer: BootstrapPagination::Rails, inner_window: 1, outer_window: 0%>
+    </p>
+<%else%>
+  <div class="alert alert-info text-center" role="alert">
+    <strong>No matches! </strong>
+    Reset your search or create a new company.
+  </div>
+<%end%>
+
+
+

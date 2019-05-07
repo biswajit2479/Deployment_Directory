@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">COMPANY</Data></Cell>
+        <Cell><Data ss:Type="String">COMPANY SYSTEM NAME</Data></Cell>
+        <Cell><Data ss:Type="String">COMPANY SUBSYSTEMS</Data></Cell>
+        <Cell><Data ss:Type="String">STATUS</Data></Cell>
+        <Cell><Data ss:Type="String">Cluster</Data></Cell>
+        <Cell><Data ss:Type="String">Environment</Data></Cell>
+        <Cell><Data ss:Type="String">Plugin_Deployment</Data></Cell>
+        <Cell><Data ss:Type="String">Plugins</Data></Cell>
+      </Row>
+    <% @companies.each do |company| %>
+      <Row>
+        <Cell><Data ss:Type="String"><%= company.name %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= company.system_name %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= company.deployment_names.to_sentence%></Data></Cell>
+        <Cell><Data ss:Type="String"><%= "ACTIVE" %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= company.cluster.name == "staging" ? "cluster10" : "demo" %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= company.cluster.name == "staging" ? "Staging" : "Demo"%>
+        </Data></Cell>
+        <Cell><Data ss:Type="String"><%= company.plugin_names.present? ? "yes" : "no"%>
+        </Data></Cell>
+        <Cell><Data ss:Type="String"><%= company.plugin_names.join(",")%></Data></Cell>
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>

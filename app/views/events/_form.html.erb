@@ -1,0 +1,76 @@
+<div class="form-fluid">
+<%= form_with(model: event, local: true) do |form| %>
+  <% if event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+      <% event.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+ <div class="form-group">
+    <%= form.label :Company %>
+    <%= form.collection_select :company_id, Company.all , :id, :name_with_cluster,{include_blank: true},{multiple: false,class: 'form-control selectpicker'} %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :event_name %>
+    <%= form.text_field :event_name, class: "form-control", placeholder: "Event Name", id: :event_event_name %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :event_system_name %>
+    <%= form.text_field :event_system_name, class: "form-control", placeholder: "Event System Name should be only in lowercase without space along with the year in YYYY", id: :event_event_system_name %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :event_type %>
+    <%= form.collection_select :event_type_id, EventType.all , :id, :event_type,{include_blank: false},{multiple: false,class: 'form-control selectpicker'} %>
+  </div>
+
+
+  <div class="form-group">
+    <%= form.label :start_date %>
+    <div class='input-group date'>
+        <%= form.text_field :start_date, class: 'form-control', id:'startDatePicker'%>
+    </div>
+    <%= form.label :end_date %>
+    <div class='input-group date'>
+        <%= form.text_field :end_date, class: 'form-control', id: 'endDatePicker'%>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :plugin %>
+    <%= form.select :plugin_name, Plugin::PLUGINS.map{|plugin| [plugin,plugin]},{selected: event_plugins(event)},{multiple: true, class: 'form-control selectpicker'} %>
+  </div>
+  <div class="form-group">
+    <%= form.label :card_no %>
+    <%= form.text_field :card_no, class: "form-control", placeholder: "Jira Card No", id: :event_card_no %>
+  </div>
+
+
+  <div class="form-actions text-center">
+    <%= form.submit class: "btn btn-success", data: { confirm: 'Please make sure the event dates are correct!'}%>
+    <%= link_to 'Cancel', events_path, class: 'btn btn-default' %>
+  </div>
+
+  <% end %>
+<script type="text/javascript">
+    var format = 'YYYY-MM-DD';
+    $(function () {
+        $('#startDatePicker').datetimepicker({
+            format: format
+        }).on("dp.change", function (e) {
+            $('#endDatePicker').data("DateTimePicker").minDate(e.date);
+        });
+    });
+    $(function () {
+        $('#endDatePicker').datetimepicker({
+            format: format
+        });
+    });
+</script>

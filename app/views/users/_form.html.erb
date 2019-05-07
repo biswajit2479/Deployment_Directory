@@ -1,0 +1,38 @@
+<div class="form-fluid">
+<%= form_with(model: user, local: true) do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+   <div class="form-group">
+    <%= form.label :role_id %>
+    <%= form.collection_select :role_id, Role.all , :id, :name,{include_blank: true},{multiple: false,class: 'form-control selectpicker'} %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :grant_login_access %>
+    <%= form.select :grant_login_access, [['Yes', true], ['No', false]] %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :active_status %>
+    <%= form.select :active_status, [['Active', true], ['Inactive', false]] %>
+  </div>
+
+  <div class="form-actions text-center">
+    <%= form.submit class: "btn btn-success", data: {}%>
+    <%= link_to 'Cancel', users_path, class: 'btn btn-default' %>
+  </div>
+
+
+
+  <% end %>
