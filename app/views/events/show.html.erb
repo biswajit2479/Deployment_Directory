@@ -1,0 +1,88 @@
+<% if @event.purge_status == false %>
+  <div class="panel panel-info">
+  <div class="panel-heading text-center"><%= @event.event_name %></div>
+<%else%>
+  <div class="panel panel-danger">
+  <div class="panel-heading text-center"><%= @event.event_name %>(Event Purged)</div>
+<%end%>
+  <!-- Default panel contents -->
+  
+  <div class="panel-body">
+
+<p>
+  <strong>Company Name:</strong>
+  <%= @event.company.name %>
+</p>
+
+<p>
+  <strong>Company System Name:</strong>
+  <%= @event.company.system_name %>
+</p>
+<p>
+  <strong>Event name:</strong>
+  <%= @event.event_name %>
+</p>
+
+<p>
+  <strong>Event system name:</strong>
+  <%= @event.event_system_name %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @event.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @event.end_date %>
+</p>
+
+<p>
+  <strong>Creation date:</strong>
+  <%= @event.created_at %>
+</p>
+
+<p>
+  <strong>Purge date:</strong>
+  <%= @event.purge_date %>
+</p>
+
+<p>
+  <strong>Cluster:</strong>
+  <%= @event.company.cluster.name %>
+</p>
+
+<p>
+  <strong>Plugin Name:</strong>
+  <%= @event.plugin_names.to_sentence %>
+</p>
+
+<p>
+  <strong>Card no:</strong>
+  <%= @event.card_no %>
+</p>
+
+<p>
+  <strong>Link:</strong>
+  <%= @event.link %>
+</p>
+
+<p>
+  <strong>Last Updated by: </strong>
+  <%= @event.last_updated_by %>
+</p>
+
+
+<div class='text-center'>
+  <%= link_to 'Back', events_path, class: "btn btn-info" %>
+  <%unless current_user.normal_user?%>
+    <%= link_to 'Edit', edit_event_path(@event), class: "btn btn-default" %>
+    <% if @event.purge_status == true %>
+    <%= link_to 'Unpurge', unpurge_events_path(id: @event.id), method: :post, data: { confirm: 'Are you sure?'}, class: "btn btn-success" %>
+  <%else%>
+    <a href="https://cd.jifflenow.com/jenkins/job/IRIS_Deployment/build?delay=0sec" target="_blank" class="btn btn-success" role="button">Deploy</a>
+  <%end%>
+  <%end%>
+</div>
+

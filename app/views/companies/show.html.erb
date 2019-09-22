@@ -1,0 +1,43 @@
+<div class="panel panel-info">
+  <div class="panel-heading text-center"><%= @company.name %></div>
+  <div class="panel-body">
+    <p>
+      <strong>System name:</strong>
+      <%= @company.system_name %>
+    </p>
+
+    <p>
+      <strong>Deployment:</strong>
+      <%= @company.deployment_names.to_sentence %>
+    </p>
+
+    <p>
+      <strong>Cluster:</strong>
+      <%= @company.cluster.name %>
+    </p>
+
+    <p>
+      <strong>Plugin:</strong>
+      <%= @company.plugin_names.to_sentence %>
+    </p>
+
+    <p>
+      <strong>CSM:</strong>
+      <%= @company.csm_info.name %>
+    </p>
+
+    <p>
+      <strong> Last Updated by: </strong>
+      <%= @company.last_updated_by %>
+    </p>
+  </div>
+</div>
+
+<div class='text-center'>
+  <%= link_to 'Back', companies_path, class: "btn btn-info" %>
+  <%unless current_user.normal_user?%>
+    <%= link_to 'Edit', edit_company_path(@company), class: "btn btn-default" %>
+    <a href="https://cd.jifflenow.com/jenkins/job/IRIS_Deployment/build?delay=0sec" target="_blank" class="btn btn-success" role="button">Deploy</a>
+  <%end%>
+  
+</div>

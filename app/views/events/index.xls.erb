@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:o="urn:schemas-microsoft-com:office:office"
+  xmlns:x="urn:schemas-microsoft-com:office:excel"
+  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+  xmlns:html="http://www.w3.org/TR/REC-html40">
+  <Worksheet ss:Name="Sheet1">
+    <Table>
+      <Row>
+        <Cell><Data ss:Type="String">Company Name</Data></Cell>
+        <Cell><Data ss:Type="String">Event Name</Data></Cell>
+        <Cell><Data ss:Type="String">Company System Name</Data></Cell>
+        <Cell><Data ss:Type="String">Event System Name</Data></Cell>
+        <Cell><Data ss:Type="String">Event Type</Data></Cell>
+        <Cell><Data ss:Type="String">Status</Data></Cell>
+        <Cell><Data ss:Type="String">Start Date</Data></Cell>
+        <Cell><Data ss:Type="String">End date</Data></Cell>
+        <Cell><Data ss:Type="String">Powered on Date</Data></Cell>
+        <Cell><Data ss:Type="String">Cluster</Data></Cell>
+        <Cell><Data ss:Type="String">Purge date</Data></Cell>
+        <Cell><Data ss:Type="String">Plugin Deployment</Data></Cell>
+        <Cell><Data ss:Type="String">Plugin Name</Data></Cell>
+        <Cell><Data ss:Type="String">Gcal</Data></Cell>
+        <Cell><Data ss:Type="String">CSM</Data></Cell>
+        <Cell><Data ss:Type="String">Card No</Data></Cell>
+        <Cell><Data ss:Type="String">URL</Data></Cell>
+      </Row>
+
+    <% @events.each do |event| %>
+    <%next if event.purge_status == true%>
+      <Row>
+        <Cell><Data ss:Type="String"><%= event.company.name %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= event.event_name %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= event.company.system_name %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= event.event_system_name %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= event.event_type.event_type %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= event.purge_status == true ? "Purged" : (event.end_date >= Date.today ? "Active" : "Passive") %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= event.start_date %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= event.end_date %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= event.creation_date %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= event.company.cluster.name == "staging" ? "cluster10" : "demo" %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= event.purge_date %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= event.plugin_names.present? ? "yes" : "no"%>
+        </Data></Cell>
+        <Cell><Data ss:Type="String"><%= event.plugin_names.to_sentence %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= event.plugin_names.include?("gcal") ? "yes" : "no" %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= event.company.csm_info.try(:name) %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= event.card_no %></Data></Cell>
+        <Cell><Data ss:Type="String"><%= event.link %></Data></Cell>
+
+      </Row>
+    <% end %>
+    </Table>
+  </Worksheet>
+</Workbook>
+

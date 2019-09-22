@@ -1,0 +1,69 @@
+<%= render "layouts/sub_header_event" %>
+<% if @events.present? %>
+<div class="table-responsive">
+  <table class="table table-hover table-bordered table-dark ">
+    <thead class="thead-dark">
+      <tr>
+        <th>Company name</th>
+        <th>Event name</th>
+        <!--th>Event system name</th-->
+        <th>Event type</th>
+        <!--th>Start date</th>
+        <th>End date</th-->
+        <th>Purge date</th>
+        <th>Cluster</th>
+        <th>Plugin name</th>
+        <th>CSM</th>
+        <%if current_user.css? || current_user.cse? || current_user.infra? || current_user.admin?%>
+        <th colspan="3">Action</th>
+         <%end%>
+
+      </tr>
+    </thead>
+    <tbody>
+      <% @events.each do |event| %>
+        <tr>
+          <td><%= event.company.try(:name)%></td>
+          <td><%= link_to event.event_name, event %></td>
+          <!--td><%= event.event_system_name %></td-->
+          <td><%= event.event_type.try(:event_type) %></td>
+          <!--td><%= event.start_date %></td>
+          <td><%= event.end_date %></td-->
+          <td><%= event.purge_date %></td>
+          <td><%= event.company.cluster.try(:name) %></td>
+          <td class="truncate">
+            <div class="d-inline-block" data-toggle="tooltip" title=<%= event.plugin_names.to_sentence %>>
+              <span><%= event.plugin_names.to_sentence.truncate(20) %></span>
+            </div>
+            </td>
+          <td><%= event.company.csm_info.try(:name) %></td>
+          <%unless current_user.normal_user?%>
+            <% if event.purge_status == true %>
+              <td class='text-center'> <%= link_to 'Event is Purged', "#", class: "btn btn-danger btn-xs" %>
+              </td>
+              <% elsif event.purge_status == false %>
+              <td class='text-center'> <%= link_to '', edit_event_path(event), class: "glyphicon glyphicon-pencil" %>
+                <%if current_user.cse? || current_user.infra? || current_user.admin? %>
+              <td><%= link_to '', purge_events_path(id: event.id), method: :post, data: { confirm: 'Are you sure?'}, class: "glyphicon glyphicon-trash" %></td>
+              <%end%>
+              </td>
+            <%end%>
+          <%end%>
+        </tr>
+      <%end%>
+    </tbody>
+  </table>
+</div>
+
+  <p class: "pull-right">
+    <%= will_paginate @companies, renderer: BootstrapPagination::Rails, inner_window: 1, outer_window: 0%>
+  </p>
+
+<%else%>
+
+  <div class="alert alert-info text-center" role="alert">
+    <strong>No matches! </strong>
+      Reset your search.
+  </div>
+
+<%end%>

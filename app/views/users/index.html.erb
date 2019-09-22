@@ -1,0 +1,24 @@
+<%= render "layouts/sub_header_user" %>
+<table class="table table-hover table-bordered">
+    <thead>
+      <tr>
+        <th>User Name</th>
+        <th>Role</th>
+        <th>Access Granted</th>
+        <th>Active Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.name %></td>
+          <td><%= user.role.name %></td>
+          <td><%= user.grant_login_access%></td>
+          <td><%= user.active_status%></td>
+          <td><%= link_to '', edit_user_path(user), class: "glyphicon glyphicon-pencil" %></td>
+        </tr>
+      <%end%>
+    </tbody>
+</table>

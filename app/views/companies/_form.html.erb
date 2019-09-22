@@ -1,0 +1,51 @@
+<div class="container-fluid">
+  <%= form_with(model: company, local: true) do |form| %>
+  <% if company.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(company.errors.count, "error") %> prohibited this company from being saved:</h2>
+      <ul>
+      <% company.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<form class="form-horizontal">
+  <div class="form-group">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: "form-control", id: :company_name %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :system_name %>
+    <%= form.text_field :system_name, class: "form-control",placeholder: "Company System Name should be only in lowercase without space", id: :company_system_name %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :deployment %>
+    <%= form.collection_select :deployment_id, Deployment.all ,:id,:name,{selected: company_deployments(company)}, {multiple: true, class: 'form-control selectpicker'} %>
+  </div>
+
+    <div class="form-group">
+    <%= form.label :plugin %>
+    <%= form.select :plugin_name, Plugin::PLUGINS.map{|plugin| [plugin,plugin]},{selected: company_plugins(company)},{multiple: true, class: 'form-control selectpicker'} %>
+  </div>
+
+    <div class="form-group">
+    <%= form.label :cluster %>
+    <%= form.collection_select(:cluster_id,  Cluster.all , :id, :name,{include_blank: false},{class: 'form-control selectpicker'}, ) %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :csm %>
+    <%= form.collection_select(:csm_info_id,  CsmInfo.all , :id, :name,{include_blank: true},{class: 'form-control selectpicker'}, ) %>
+  </div>
+
+  </br>
+  <div class="form-actions text-center">
+     <%= form.submit class: "btn btn-success"%>
+     <%= link_to 'Cancel', companies_path, class: 'btn btn-default' %>
+   </div>
+<% end %>
+</form>
+</div>

@@ -1,0 +1,26 @@
+// "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import 'bootstrap-datetimepicker';
+
+// body {
+//       background: azure;
+//      font-family: "Delicious";
+//     }
+
+body {
+  padding-top: 20px;
+  .main-container{
+    margin: 50px;
+  }
+
+  footer {
+    .copyright {
+      margin-top: 10px;
+    }
+  }
+  .tooltip-inner {
+            max-width: none;
+            white-space: nowrap;
+        }
+}

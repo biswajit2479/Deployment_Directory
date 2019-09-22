@@ -1,0 +1,28 @@
+<html>
+  <head>
+    <title>Deployment Directory</title>
+    <link rel="icon" type="image/png" href="/dd.png">
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body class="bg-light">
+    <%= render "layouts/header" %>
+    <div class="container-fluid main-container">
+      <div class="headerright">
+          <div class="headerrightrowone">
+            <% if current_user %>
+              Welcome <strong><%= current_user.name %></strong>!
+            <% end %>
+          </div>
+        </div>
+        <br>
+        <% flash.each do |key, value| %>
+      <div class="alert alert-danger fade in text-center <%= key %>"> <%= value %></div>
+      <% end %>
+      <%= yield %>
+    </div>
+    <%= render "layouts/footer" %>
+  </body>
+</html>

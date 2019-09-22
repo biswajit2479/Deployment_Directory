@@ -1,0 +1,23 @@
+# deployment_directory
+
+default: &default
+  client_id: '810659021532-i86d300pjgn8bd27e08u2p9b085966sq.apps.googleusercontent.com'
+  client_secret: 'BPuW8GXrL6hmT-vNJa82oB5v'
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+qa:
+  <<: *default
+
+staging:
+  <<: *default
+
+production:
+  <<: *default
+
+automation:
+  <<: *default
